@@ -9,7 +9,8 @@ import {
   UilSunset,
 } from "@iconscout/react-unicons";
 
-function TemperatureAndDetails() {
+function TemperatureAndDetails(props) {
+  console.log(props);
   return (
     <div>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
