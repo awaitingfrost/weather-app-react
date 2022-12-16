@@ -1,20 +1,16 @@
-import TopButtons from "./components/TopButtons";
-import Input from "./components/Input";
-import TimeAndLocation from "./components/TimeAndLocation";
-import TemperatureAndDetails from "./components/TemperatureAndDetails";
-import Forecast from "./components/Forecast";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import NavDetails from "./components/NavDetails";
 
 function App() {
   return (
-    <div className=" mx-auto max-w-screen-md mt-5 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 shadow-xl shadow-gray-400 ">
-      <TopButtons />
-      <Input />
-
-      <TimeAndLocation />
-      <TemperatureAndDetails />
-      <Forecast title="hourly forecast" />
-      <Forecast title="daily forecast" />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="/city/:cityName" element={<NavDetails />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 

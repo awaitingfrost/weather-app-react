@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
-  UilArrrowUp,
-  UilArrowDown,
   UilTemperature,
   UilTear,
   UilWind,
@@ -10,7 +8,9 @@ import {
 } from "@iconscout/react-unicons";
 
 function TemperatureAndDetails(props) {
-  console.log(props);
+  useEffect(() => {
+    console.log(props.passedValue);
+  });
   return (
     <div>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
@@ -23,17 +23,21 @@ function TemperatureAndDetails(props) {
           alt="0"
           className="w-20"
         />
-        <p className="text-5xl">34</p>
+        <p className="text-5xl">{props.passedValue.temp}</p>
         <div className="flex flex-col space-y-2">
           <div className="flex font-light text-sm justify-start">
             <UilTemperature size={18} className="mr-1" />
             Real fell:
-            <span className="font-medium ml-1">32</span>
+            <span className="font-medium ml-1">
+              {props.passedValue.feels_like}
+            </span>
           </div>
           <div className="flex font-light text-sm justify-start">
             <UilTear size={18} className="mr-1" />
             Humidity:
-            <span className="font-medium ml-1">65</span>
+            <span className="font-medium ml-1">
+              {props.passedValue.humidity}
+            </span>
           </div>
           <div className="flex font-light text-sm justify-start">
             <UilWind size={18} className="mr-1" />
